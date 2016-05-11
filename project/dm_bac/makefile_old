@@ -1,0 +1,2 @@
+insert:insert.c
+	gcc -o insert  insert.c  -ldmapi  -I "/home/d5000/dalian/src/platform/his/dm_sys_watch/" -I "/home/d5000/dalian/src/cleanso2/db-5.1.25.NC/build_windows/" -L "/home/d5000/dalian/lib/"  -L "/home/d5000/dalian/dmdbms/bin/"  -L "/home/d5000/dalian/src/platform/his/dm_sys_watch/"

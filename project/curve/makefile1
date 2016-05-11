@@ -1,0 +1,13 @@
+curve_check: curve_check.o log.o dm_operater.o inifile.o
+	gcc -o curve_check curve_check.o log.o dm_operater.o inifile.o -I /home/d5000/dalian/dmdbms/bin/include/ -L /home/d5000/dalian/dmdbms/bin/ -ldmapi
+curve_check.o: curve_check.c log.h dm_operater.h global_variable.h
+	gcc -g -c curve_check.c -I /home/d5000/dalian/dmdbms/bin/include/
+dm_operater.o: dm_operater.c log.h inifile.h
+	gcc -g -c dm_operater.c -I /home/d5000/dalian/dmdbms/bin/include/ 
+log.o: log.c
+	gcc -g -c log.c -I /home/d5000/dalian/dmdbms/bin/include/ 
+inifile.o: inifile.c
+	gcc -g -c inifile.c -I /home/d5000/dalian/dmdbms/bin/include/ 
+
+clean:
+	rm -rf *.o

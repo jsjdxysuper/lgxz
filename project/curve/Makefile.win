@@ -1,0 +1,39 @@
+# Project: cure_check
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = curve_check.o dm_operater.o inifile.o log.o $(RES)
+LINKOBJ  = curve_check.o dm_operater.o inifile.o log.o $(RES)
+LIBS =  -L"C:/Program Files/DEV-CPP/Lib" -L "./"  -ldmapi  
+INCS =  -I"C:/Program Files/DEV-CPP/include"  -I"F:/dmdbms/bin/include" 
+CXXINCS =  -I"C:/Program Files/DEV-CPP/lib/gcc/mingw32/3.4.2/include"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2/backward"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2/mingw32"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2"  -I"C:/Program Files/DEV-CPP/include" 
+BIN  = cure_check.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before cure_check.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "cure_check.exe" $(LIBS)
+
+curve_check.o: curve_check.c
+	$(CC) -c curve_check.c -o curve_check.o $(CFLAGS)
+
+dm_operater.o: dm_operater.c
+	$(CC) -c dm_operater.c -o dm_operater.o $(CFLAGS)
+
+inifile.o: inifile.c
+	$(CC) -c inifile.c -o inifile.o $(CFLAGS)
+
+log.o: log.c
+	$(CC) -c log.c -o log.o $(CFLAGS)

@@ -1,0 +1,42 @@
+# Project: silence_cost_collect
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = log.o cal_run_check_cost_collect.o common.o dm_operater.o inifile.o $(RES)
+LINKOBJ  = log.o cal_run_check_cost_collect.o common.o dm_operater.o inifile.o $(RES)
+LIBS =  -L"C:/Program Files/DEV-CPP/Lib" -L "./"  -ldmapi -mwindows  
+INCS =  -I"C:/Program Files/DEV-CPP/include"  -I"F:/dmdbms/bin/include" 
+CXXINCS =  -I"C:/Program Files/DEV-CPP/lib/gcc/mingw32/3.4.2/include"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2/backward"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2/mingw32"  -I"C:/Program Files/DEV-CPP/include/c++/3.4.2"  -I"C:/Program Files/DEV-CPP/include" 
+BIN  = silence_cost_collect.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before silence_cost_collect.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "silence_cost_collect.exe" $(LIBS)
+
+log.o: log.c
+	$(CC) -c log.c -o log.o $(CFLAGS)
+
+cal_run_check_cost_collect.o: cal_run_check_cost_collect.c
+	$(CC) -c cal_run_check_cost_collect.c -o cal_run_check_cost_collect.o $(CFLAGS)
+
+common.o: common.c
+	$(CC) -c common.c -o common.o $(CFLAGS)
+
+dm_operater.o: dm_operater.c
+	$(CC) -c dm_operater.c -o dm_operater.o $(CFLAGS)
+
+inifile.o: inifile.c
+	$(CC) -c inifile.c -o inifile.o $(CFLAGS)
